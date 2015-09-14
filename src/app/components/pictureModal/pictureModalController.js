@@ -13,6 +13,7 @@
       animation: $scope.animationsEnabled,
       templateUrl: 'app/components/pictureModal/pictureModal.html',
       controller: 'pictureModalInstanceController',
+      size:'lg',
       resolve: {
         items: function () {
           return photo;

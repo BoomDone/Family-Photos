@@ -8,11 +8,7 @@
     item: $scope.items[0]
   };
 
-  $scope.ok = function () {
-    $modalInstance.close($scope.selected.item);
-  };
-
-  $scope.cancel = function () {
-    $modalInstance.dismiss('cancel');
-  };
+   $scope.close = function close(){
+            $modalInstance.dismiss('close');
+        }
 });
