@@ -6,14 +6,16 @@
 
   <div class="jumbotron text-center">
     <h1>Possible carousel??</h1>
+    <img ng-repeat="photo in photos" class="slide" ng-show="isActive($index)" ng-src="{{photo.imgSrc}}" />
   </div>
 <div>
 <input ng-model="searchText" placeholder="Filter by entering a name, data, event, or location" style="width:50%;">
 </div>
+
   <div class="row">
     <div class="col-sm-6 col-md-4" ng-repeat="photo in main.photos | filter:searchText">
       <div class="thumbnail">
-        <img class="pull-right" ng-src="assets/images/{{ photo.imgSrc }}" alt="{{ photo.title }}">
+       <a ng-click="open(photo)" ng-controller="pictureModalController"> <img class="pull-right small" ng-src="assets/images/{{ photo.imgSrc }}" alt="{{ photo.title }}" ng-click="vm.scrollTo(image,$index)"></a>
         <div class="caption">
           <h3>Location: {{ photo.location }}</h3>
           <p>People: 

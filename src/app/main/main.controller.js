@@ -23,6 +23,8 @@
       vm.photos = webDevTec.getTec();
     }
 
+
+
     function filterSearch(photos){
 
 

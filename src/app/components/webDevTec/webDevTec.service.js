@@ -24,7 +24,7 @@
         'Kristen',
         'Smokey'
       ],
-      'eventItem':"",
+      'eventItem':"New Kitty",
       'date':"June 2012",
       'imgSrc': 'kristenSmokey.jpg'
     },
