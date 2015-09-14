@@ -1,14 +1,20 @@
 
+(function() {
+  'use strict';
+
   angular
     .module('photoTestApp')
-.controller('pictureModalInstanceController', function ($scope, $modalInstance, items) {
+    .controller('pictureModalInstanceController', pictureModalInstanceController);
 
-  $scope.items = items;
-  $scope.selected = {
-    item: $scope.items[0]
-  };
+  /** @ngInject */
+  function pictureModalInstanceController( $modalInstance, items) {
+    var vm = this;
 
-   $scope.close = function close(){
-            $modalInstance.dismiss('close');
-        }
-});
+    vm.items = items;
+    vm.close=close;
+ 
+    function close(){
+      $modalInstance.dismiss('close');
+    }
+  }
+})();

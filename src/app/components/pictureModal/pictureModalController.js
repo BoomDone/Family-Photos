@@ -1,10 +1,13 @@
+(function() {
+  'use strict';
 
   angular
     .module('photoTestApp')
-    .controller('pictureModalController', function ($scope, $modal, $log) {
+    .controller('pictureModalController', pictureModalController);
 
-  $scope.items = ['item1', 'item2', 'item3'];
-
+  /** @ngInject */
+  function pictureModalController($scope, $modal, $log) {
+  
   $scope.animationsEnabled = true;
 
   $scope.open = function (photo) {
@@ -12,7 +15,7 @@
     var modalInstance = $modal.open({
       animation: $scope.animationsEnabled,
       templateUrl: 'app/components/pictureModal/pictureModal.html',
-      controller: 'pictureModalInstanceController',
+      controller: 'pictureModalInstanceController as vm',
       size:'lg',
       resolve: {
         items: function () {
@@ -32,4 +35,5 @@
     $scope.animationsEnabled = !$scope.animationsEnabled;
   };
 
-});
+  }
+})();
