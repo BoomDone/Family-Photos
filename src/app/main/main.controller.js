@@ -6,15 +6,15 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController($timeout, webDevTec) {
+  function MainController($timeout, webDevTec, $filter) {
     var vm = this;
 
     vm.photos = [];
     vm.locations=[]
-    // vm.openPhotoSwipe=openPhotoSwipe; TODO: add in photoswipe to view larger images
+    vm.openPhotoSwipe=openPhotoSwipe; 
 
       activate();
-
+   
     function activate() {
       getWebDevTec();
     }
@@ -23,25 +23,26 @@
       vm.photos = webDevTec.getTec();
     }
 
-// function openPhotoSwipe() {
-//     var pswpElement = document.querySelectorAll('.pswp')[0];
+    function openPhotoSwipe(index, searchText) {
+        var pswpElement = document.querySelectorAll('.pswp')[0];
 
-//     // build items array
-//     var items = [];
-//     vm.photos.forEach(function(photo){
-//       items.push({src: 'assets/images/'+ photo.imgSrc,
-//                   w: photo.width,
-//                   h: photo.height})
-//     });
-    
-//     // define options (if needed)
-//     var options = {
+        // build items array
+        var items = [];
+        var photosToShow =  $filter('filter')(vm.photos, searchText);
+        photosToShow.forEach(function(photo){
+          items.push({src: 'assets/images/'+ photo.imgSrc,
+                      w: photo.width,
+                      h: photo.height})
+        });
         
-//     };
-    
-//     var gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, options);
-//     gallery.init();
-// };
+        // define options (if needed)
+        var options = {
+            index:index
+        };
+        
+        var gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, options);
+        gallery.init();
+    };
 
 
   }

@@ -17,15 +17,16 @@ Filter Images: <input ng-model="searchText" placeholder="Filter by entering a na
   <div class="row">
     <div class="col-sm-6 col-md-4" ng-repeat="photo in main.photos | filter:searchText">
       <div class="thumbnail">
-       <a ng-click="open(photo)" ng-controller="pictureModalController"> 
-       <img class="pull-right small" ng-src="assets/images/{{ photo.imgSrc }}" alt="{{ photo.title }}" ng-click="vm.scrollTo(image,$index)"></a>
-        <div class="caption">
-          <div ng-show="{{ photo.location }}"><i class="fa fa-globe"></i>{{photo.location }}</div>
+<!--        <a ng-click="main.openPhotoSwipe($index)"> 
+ -->       <img class="pull-right small" ng-src="assets/images/{{ photo.imgSrc }}" alt="{{ photo.title }}" ng-click="main.openPhotoSwipe($index, searchText)">
+ <!-- </a>
+  -->       <div class="caption">
+          <div ng-show="photo.location.length > 0"><i class="fa fa-globe"></i>{{photo.location }}</div>
           <div ng-show="photo.people.length > 0"> 
-          <i class="fa fa-user"></i>People:
-          <div class="thumbnail-people">{{photo.people | join}}</div>
-          <div ng-show="{{ photo.date }}"><i class="fa fa-calendar"></i>{{photo.date }}</div>
-          <div ng-show="{{ photo.eventItem }}"><i class="fa fa-clock-o"></i>{{photo.eventItem }}</div>
+            <i class="fa fa-user"></i>{{photo.people | join}}
+          </div>
+          <div ng-show="photo.date.length > 0"><i class="fa fa-calendar"></i>{{photo.date }}</div>
+          <div ng-show="photo.eventItem.length > 0"><i class="fa fa-clock-o"></i>{{photo.eventItem }}</div>
 
         </div>
       </div>
