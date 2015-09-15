@@ -13,7 +13,7 @@
     vm.photos = [];
     vm.locations=[]
     vm.openPhotoSwipe=openPhotoSwipe; 
-    vm.selectedItem="Person"
+    vm.selectedItem="People"
     activate();
    
 

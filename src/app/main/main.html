@@ -24,8 +24,8 @@ indiviually by 'and/or'
             <ul class="dropdown-menu dropdown-menu-right" role="menu"> 
                <li ng-click="main.onItemClick('Location')"
                     id="location"><a href="#">Location</a></li>
-               <li ng-click="main.onItemClick('Person')"
-                    id="people"><a href="#">Person</a></li>
+               <li ng-click="main.onItemClick('People')"
+                    id="people"><a href="#">People</a></li>
                <li ng-click="main.onItemClick('Event')"
                     id="event"><a href="#">Event</a></li>
                <li ng-click="main.onItemClick('Date')"
@@ -40,7 +40,7 @@ indiviually by 'and/or'
 
 </div>
   <div class="row">
-    <div class="col-sm-6 col-md-4" ng-repeat="photo in main.photos | filter:searchText">
+    <div class="col-sm-6 col-md-4" ng-repeat="photo in main.photos | locationFilter:main.selectedItem:searchText">
       <div class="thumbnail">
       <div class="container-thumbnail">
      <img class="pull-right small" ng-src="assets/images/{{ photo.imgSrc }}" alt="{{ photo.title }}" ng-click="main.openPhotoSwipe($index, searchText)">
