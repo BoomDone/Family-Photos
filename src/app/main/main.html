@@ -9,7 +9,31 @@
 indiviually by 'and/or'
  -->  
     <h2>Filter Images:</h2> 
-    <input ng-model="searchText" placeholder="Filter by entering a name, data, event, or location" class="filterImages">
+
+    <div class="input-group ">
+        <input type="text" class="form-control searchDropdown" placeholder="Filter by entering a name, data, event, or location" class="filterImages"
+               id="searchText"
+               name="searchText"
+               ng-model="searchText" />
+
+        <span class="input-group-btn dropdown" dropdown>
+            <button type="button" class="btn btn-default dropdown-toggle" dropdown-toggle
+                    data-target="#" id="searchDropdown" ng-model="main.selectedItem" value="{{main.selectedItem}}">
+                {{main.selectedItem}} <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-right" role="menu"> 
+               <li ng-click="main.onItemClick('Location')"
+                    id="location"><a href="#">Location</a></li>
+               <li ng-click="main.onItemClick('Person')"
+                    id="people"><a href="#">Person</a></li>
+               <li ng-click="main.onItemClick('Event')"
+                    id="event"><a href="#">Event</a></li>
+               <li ng-click="main.onItemClick('Date')"
+                    id="date"><a href="#">Date</a></li>
+            </ul>
+        </span>
+    </div>
+  
     <img ng-repeat="photo in photos" class="slide" ng-show="isActive($index)" ng-src="{{photo.imgSrc}}" />
   </div>
 <div>

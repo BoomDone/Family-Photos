@@ -8,13 +8,19 @@
   /** @ngInject */
   function MainController($timeout, webDevTec, $filter) {
     var vm = this;
+    vm.onItemClick = onItemClick;
 
     vm.photos = [];
     vm.locations=[]
     vm.openPhotoSwipe=openPhotoSwipe; 
-
+    vm.selectedItem="Person"
     activate();
    
+
+    function onItemClick(item) {
+            vm.selectedItem = item;
+        }
+
     function activate() {
       getWebDevTec();
     }
