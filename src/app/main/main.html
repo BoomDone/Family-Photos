@@ -1,17 +1,18 @@
 <div class="container">
 
   <div>
-    <acme-navbar creation-date="main.creationDate"></acme-navbar>
+    <acme-navbar/>
   </div>
 
   <div class="jumbotron text-center">
-    <h1>Possible carousel??</h1>
+<!-- ToDo: create input possible dropdown for type to filter on and possible values ideally be able to filter
+indiviually by 'and/or'
+ -->  
+    <h2>Filter Images:</h2> 
+    <input ng-model="searchText" placeholder="Filter by entering a name, data, event, or location" class="filterImages">
     <img ng-repeat="photo in photos" class="slide" ng-show="isActive($index)" ng-src="{{photo.imgSrc}}" />
   </div>
 <div>
-
-Filter Images: <input ng-model="searchText" placeholder="Filter by entering a name, data, event, or location" class="filterImages">
-
 
 </div>
   <div class="row">
