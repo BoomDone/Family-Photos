@@ -23,10 +23,7 @@ Filter Images: <input ng-model="searchText" placeholder="Filter by entering a na
           <div ng-show="{{ photo.location }}"><i class="fa fa-globe"></i>{{photo.location }}</div>
           <div ng-show="photo.people.length > 0"> 
           <i class="fa fa-user"></i>People:
-          <ul>
-              <li ng-repeat="person in photo.people" style="list-style-type: none;">{{person}}</li>
-              </ul>
-          </div>
+          <div class="thumbnail-people">{{photo.people | join}}</div>
           <div ng-show="{{ photo.date }}"><i class="fa fa-calendar"></i>{{photo.date }}</div>
           <div ng-show="{{ photo.eventItem }}"><i class="fa fa-clock-o"></i>{{photo.eventItem }}</div>
 
