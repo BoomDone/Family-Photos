@@ -18,13 +18,30 @@ $icon-font-path: "../../bower_components/bootstrap-sass/assets/fonts/bootstrap/"
   color: #000;
   padding: 0.2em 0;
 }
-
+.container-thumbnail {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+  float: right;
+}
+.container-thumbnail img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 100%;
+  width: auto;
+  -webkit-transform: translate(-50%,-50%);
+      -ms-transform: translate(-50%,-50%);
+          transform: translate(-50%,-50%);
+}
+.thumbnail img.portrait {
+  width: 100%;
+  height: auto;
+}
 .thumbnail {
   min-height: 200px;
-
-  img.pull-right {
-    width: 128px;
-  }
+  box-shadow:2px 2px 6px #a4a4a4;
 
   .fa{
   	padding-right: 1em;
@@ -36,6 +53,17 @@ $icon-font-path: "../../bower_components/bootstrap-sass/assets/fonts/bootstrap/"
 
   .thumbnail-people{
       margin-left:3em;
+  }
+  .caption{
+    font-size:small;
+    margin-top:1em;
+
+    .thumbnail-text{
+      padding-bottom: .5em;
+      width: 55%;
+      border-bottom:1px solid #ccc;
+      padding-top: .5em;
+    }
   }
 }
 .modal-image{
