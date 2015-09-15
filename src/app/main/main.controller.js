@@ -13,7 +13,7 @@
     vm.locations=[]
     vm.openPhotoSwipe=openPhotoSwipe; 
 
-      activate();
+    activate();
    
     function activate() {
       getWebDevTec();
