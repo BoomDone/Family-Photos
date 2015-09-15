@@ -20,11 +20,25 @@ $icon-font-path: "../../bower_components/bootstrap-sass/assets/fonts/bootstrap/"
 }
 
 .thumbnail {
-  height: 275px;
+  min-height: 200px;
 
   img.pull-right {
     width: 100px;
   }
+
+  .fa{
+  	padding-right: 1em;
+  }
+
+  .thumbnail-img{
+    height: 260px;
+  }
+}
+.modal-image{
+	width:90%
+}
+.filterImages{
+  width:50%; margin-bottom:1em;
 }
 
 /**
@@ -33,3 +47,4 @@ $icon-font-path: "../../bower_components/bootstrap-sass/assets/fonts/bootstrap/"
  */
 // injector
 // endinjector
+
