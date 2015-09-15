@@ -10,23 +10,25 @@
   </div>
 <div>
 
-Filter Images: <input ng-model="searchText" placeholder="Filter by entering a name, data, event, or location" style="width:50%; margin-bottom:1em;">
-</div>
+Filter Images: <input ng-model="searchText" placeholder="Filter by entering a name, data, event, or location" class="filterImages">
 
+
+</div>
   <div class="row">
     <div class="col-sm-6 col-md-4" ng-repeat="photo in main.photos | filter:searchText">
       <div class="thumbnail">
        <a ng-click="open(photo)" ng-controller="pictureModalController"> 
        <img class="pull-right small" ng-src="assets/images/{{ photo.imgSrc }}" alt="{{ photo.title }}" ng-click="vm.scrollTo(image,$index)"></a>
         <div class="caption">
-          <h3>Location: {{ photo.location }}</h3>
-          <p>People: 
-            <ul>
-              <li ng-repeat="person in photo.people">{{ person }}</li>
-            </ul>
-          </p>
-          <p>Date: {{ photo.date }}</p>
-          <p>Event: {{ photo.eventItem }}</p>
+          <div ng-show="{{ photo.location }}"><i class="fa fa-globe"></i>{{photo.location }}</div>
+          <div ng-show="photo.people.length > 0"> 
+          <i class="fa fa-user"></i>People:
+          <ul>
+              <li ng-repeat="person in photo.people" style="list-style-type: none;">{{person}}</li>
+              </ul>
+          </div>
+          <div ng-show="{{ photo.date }}"><i class="fa fa-calendar"></i>{{photo.date }}</div>
+          <div ng-show="{{ photo.eventItem }}"><i class="fa fa-clock-o"></i>{{photo.eventItem }}</div>
 
         </div>
       </div>

@@ -11,7 +11,7 @@
 
     vm.photos = [];
     vm.locations=[]
-    // vm.filterSearch = filterSearch();
+    // vm.openPhotoSwipe=openPhotoSwipe; TODO: add in photoswipe to view larger images
 
       activate();
 
@@ -23,11 +23,26 @@
       vm.photos = webDevTec.getTec();
     }
 
+// function openPhotoSwipe() {
+//     var pswpElement = document.querySelectorAll('.pswp')[0];
+
+//     // build items array
+//     var items = [];
+//     vm.photos.forEach(function(photo){
+//       items.push({src: 'assets/images/'+ photo.imgSrc,
+//                   w: photo.width,
+//                   h: photo.height})
+//     });
+    
+//     // define options (if needed)
+//     var options = {
+        
+//     };
+    
+//     var gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, options);
+//     gallery.init();
+// };
 
 
-    function filterSearch(photos){
-
-
-    }
   }
 })();
